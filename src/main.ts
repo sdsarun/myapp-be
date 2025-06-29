@@ -13,6 +13,8 @@ async function bootstrap() {
   app.useLogger(logger)
   app.enableCors();
 
+  app.setGlobalPrefix("/myapp/api")
+
   await app.listen(process.env.PORT ?? 3000, void (async () => {
     const appURL = await app.getUrl();
     logger.log(process.env);
